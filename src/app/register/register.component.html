@@ -1,0 +1,51 @@
+<div class="main">
+  <div class="container">
+    <section id="content">
+      <h1>Регистрация</h1>
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <input type="text" placeholder="имя" formControlName="username" class="form-control"
+            [ngClass]="{ 'is-invalid': submitted && f.username.errors }" id="username" />
+          <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+            <div *ngIf="f.username.errors.required">
+              Поле не может быть пустым
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <input type="email" placeholder="почта" formControlName="email" class="form-control"
+            [ngClass]="{ 'is-invalid': submitted && f.email.errors }" id="email" />
+          <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+            <div *ngIf="f.email.invalid.required">
+              Требуется электронная почта
+            </div>
+            <div *ngIf="f.email.errors.email">Введите правильно email(например, user@gmail.com)</div>
+          </div>
+        </div>
+        <div class=" form-group">
+          <input type="password" placeholder="пароль" formControlName="password1" class="form-control"
+            [ngClass]="{ 'is-invalid': submitted && f.password1.errors }" id="password" />
+          <div *ngIf="submitted && f.password1.errors" class="invalid-feedback">
+            <div *ngIf="f.password1.errors.required">
+              Поле не может быть пустым
+            </div>
+            <div *ngIf="f.password1.errors.minlength">
+              Пароль должен содержать не менее 8 символов
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <input type="password" placeholder="повторите пароль " formControlName="password2" class="form-control"
+            id="password2" />
+        </div>
+        <div class="form-group">
+          <!-- <button type="submit" [disabled]="!registerForm.valid"></button> -->
+          <button type="submit">
+            Создать аккаунт
+          </button>
+          <a routerLink="/login">Есть аккаунт?</a>
+        </div>
+      </form>
+    </section>
+  </div>
+</div>
