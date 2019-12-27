@@ -11,13 +11,15 @@
     "@angular/platform-browser-dynamic": "^8.0.0",
     "@angular/router": "^8.0.0",
     "core-js": "^3.6.1",
+    "express": "^4.17.1",
     "heroku": "^7.35.1",
+    "nodemon": "^2.0.2",
     "rxjs": "^6.3.3",
     "zone.js": "^0.9.1"
   },
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "nodemon server.js",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
